@@ -4,6 +4,18 @@
   <title>Conteúdos</title>
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="shortcut icon" href="imagens/icon do site.png" type="image/x-icon">
+  <script>
+  function mostrarNoticias() {
+    document.getElementById("noticiasBox").style.display = "block";
+    document.querySelector(".btn-abrir-noticias").style.display = "none";
+  }
+
+  function fecharNoticias() {
+    document.getElementById("noticiasBox").style.display = "none";
+    document.querySelector(".btn-abrir-noticias").style.display = "block";
+  }
+</script>
+
 </head>
 <body>
   <header>
@@ -16,11 +28,119 @@
       </nav>
   </header>
   <main>
-    <p>Aqui você encontrará cursos, PDFs, notícias e materiais educativos voltados à agricultura familiar.</p>
+    <p class="tituloss">Aqui você encontrará cursos, PDFs, notícias e materiais educativos voltados à agricultura familiar.</p>
+      <main>
+        <hr>
+    <h2>Conteúdo para agricultores</h2>
+
+    <section class="cards">
+      <div class="card green" id="plantio">
+        <div class="icon">🌿</div>
+        <h3>Plantio</h3>
+        <p>Técnicas de plantio manual, irrigado e mecanizado</p>
+        <a href="platio.html">Acessar</a>
+      </div>
+
+      <div class="card orange" id="vendas">
+        <div class="icon">💰</div>
+        <h3>Vendas</h3>
+        <p>Curso sobre tecnologia e mercados agrícolas</p>
+        <a href="vendas.html">Acessar</a>
+      </div>
+
+      <div class="card blue" id="tecnologia">
+        <div class="icon">🖥️</div>
+        <h3>Tecnologia</h3>
+        <p>Agricultura digital aplicada à gestão</p>
+        <a href="tecnologia.html">Acessar</a>
+      </div>
+    </section>
+    
+  </main>
+  <section>
+    <!-- Botão para abrir -->
+<button class="btn-abrir-noticias" onclick="mostrarNoticias()">📰 Notícias</button>
+
+<!-- Caixa de notícias oculta -->
+<div class="noticias-fixa" id="noticiasBox">
+  <button class="btn-fechar" onclick="fecharNoticias()">✖</button>
+  <h4>📰 Notícias</h4>
+
+  <strong>🌿 Plantio</strong>
+  <ul>
+    <li>
+      <a href="https://www.aen.pr.gov.br/Noticia/1-em-cada-4-alimentos-da-agricultura-familiar-destinados-as-escolas-do-Parana-sao-organicos" target="_blank">
+        1 em cada 4 alimentos escolares são orgânicos
+      </a>
+    </li>
+    <li>
+      <a href="https://www.agricultura.pr.gov.br/Noticia/Agricultores-familiares-dao-exemplo-de-producao-sustentavel" target="_blank">
+        Exemplo de produção sustentável
+      </a>
+    </li>
+    <li>
+      <a href="https://periodicos.ufv.br/rever/article/view/3284" target="_blank">
+        Casas de Farinha no Litoral do PR
+      </a>
+    </li>
+  </ul>
+
+  <strong>💰 Vendas</strong>
+  <ul>
+    <li>
+      <a href="https://www.assembleia.pr.leg.br/comunicacao/noticias/agricultura-familiar-avanca-nas-feiras-e-exposicoes-no-parana-afirma-deputado-luiz-claudio" target="_blank">
+        Agricultura familiar nas feiras
+      </a>
+    </li>
+    <li>
+      <a href="https://www.assembleia.pr.leg.br/index.php/comunicacao/noticias/parana-precisa-ser-mais-agil-no-incentivo-da-producao-organica-da-agricultura-familiar-diz" target="_blank">
+        Incentivo à produção orgânica
+      </a>
+    </li>
+    <li>
+      <a href="https://www.agricultura.pr.gov.br/Noticias" target="_blank">
+        Banco do Agricultor: R$ 1 bi liberado
+      </a>
+    </li>
+  </ul>
+
+  <strong>🖥️ Tecnologia</strong>
+  <ul>
+    <li>
+      <a href="https://www.agricultura.pr.gov.br/Noticia/Parana-inaugura-tecnologia-5G-na-agropecuaria" target="_blank">
+        5G no campo: projeto-piloto no PR
+      </a>
+    </li>
+  </ul>
+</div>
+  </section>
+  <section id="creditos">
+  <h3>📚 Créditos e Fontes</h3>
+  <p>
+    Os conteúdos compartilhados nesta plataforma têm como objetivo facilitar o acesso ao conhecimento já disponível na internet, especialmente para agricultores familiares. Todos os direitos autorais pertencem aos autores e instituições originais.
+  </p>
+  <ul>
+    <li>📄 <strong>Embrapa (Infoteca)</strong> – <a href="https://www.infoteca.cnptia.embrapa.br" target="_blank">infoteca.cnptia.embrapa.br</a></li>
+    <li>📄 <strong>Senar e Senar Play</strong> – <a href="https://ead.senar.org.br" target="_blank">ead.senar.org.br</a> e <a href="https://cnabrasil.org.br" target="_blank">cnabrasil.org.br</a></li>
+    <li>📄 <strong>Scribd</strong> – <a href="https://pt.scribd.com" target="_blank">pt.scribd.com</a></li>
+    <li>📄 <strong>Conab – Companhia Nacional de Abastecimento</strong> – <a href="https://biblioteca.conab.gov.br" target="_blank">biblioteca.conab.gov.br</a></li>
+    <li>📄 <strong>AEN – Agência Estadual de Notícias do Paraná</strong> – <a href="https://www.aen.pr.gov.br" target="_blank">aen.pr.gov.br</a></li>
+    <li>📄 <strong>Secretaria da Agricultura e do Abastecimento do Paraná</strong> – <a href="https://www.agricultura.pr.gov.br" target="_blank">agricultura.pr.gov.br</a></li>
+    <li>📄 <strong>Assembleia Legislativa do Paraná</strong> – <a href="https://www.assembleia.pr.leg.br" target="_blank">assembleia.pr.leg.br</a></li>
+    <li>📄 <strong>Revista Extensão Rural (UFV)</strong> – <a href="https://periodicos.ufv.br/rever" target="_blank">periodicos.ufv.br/rever</a></li>
+    <li>📱 <strong>Senar Play – App Store</strong> – <a href="https://apps.apple.com/br/app/senar-play/id6474263341" target="_blank">App Store</a></li>
+    <li>📰 <strong>AgriMídia</strong> – <a href="https://agrimidia.com.br" target="_blank">agrimidia.com.br</a></li>
+  </ul>
+  <p>
+    Caso você seja o autor de algum conteúdo e deseje solicitar alteração ou remoção, entre em contato conosco através dos canais oficiais.
+  </p>
+</section>
+
+</body>
+</html>
   </main>
   <footer>
     <p>&copy; 2025 Thachaton</p>
   </footer>
-  <a href="index.html" class="botao-voltar">← Voltar ao Início</a>
-
+  
    

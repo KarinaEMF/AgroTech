@@ -27,7 +27,7 @@ nav {
 
 nav a {
   padding: 10px 15px;
-  background-color: #388e3c;
+  background-color: #62f169;
   color: white;
   border-radius: 5px;
   text-decoration: none;
@@ -51,19 +51,6 @@ footer {
   text-align: center;
   padding: 15px;
 }
-
-/* Botão de voltar */
-.botao-voltar {
-  display: inline-block;
-  margin-top: 20px;
-  margin-left: 10px;
-  padding: 10px 20px;
-  background-color: #2e7d32;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
 @media (max-width: 600px) {
   nav a {
     display: block;
@@ -75,9 +62,186 @@ footer {
     padding: 20px;
   }
 }
-.botao-voltar:hover {
-  background-color: #1b5e20;
-  transform: scale(1.05); /* 
+
+header h1 {
+  font-size: 1.8em;
 }
 
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+}
 
+main h2 {
+  margin-bottom: 25px;
+  font-size: 1.5em;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #ddd;
+  text-align: center;
+}
+
+.card .icon {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95em;
+  margin-bottom: 15px;
+}
+
+.card a {
+  display: inline-block;
+  background: #333;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card.green {
+  background-color: #A5D6A7
+}
+
+.card.orange {
+  background-color: #FFCC80
+}
+
+.card.blue {
+  background-color: #90CAF9
+
+}
+
+.tituloss {
+ font-size: x-large;
+ color: #2e7d32;
+ font-weight: 600;
+}
+/* Botão flutuante */
+.btn-abrir-noticias {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.btn-abrir-noticias:hover {
+  background-color: #1b5e20;
+}
+
+/* Caixa de notícias (inicialmente oculta) */
+.noticias-fixa {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  max-height: 250px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 2px solid #2e7d32;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  font-size: 0.9em;
+  z-index: 1000;
+}
+
+/* Botão de fechar */
+.btn-fechar {
+  background: transparent;
+  border: none;
+  font-size: 1.1em;
+  color: #2e7d32;
+  float: right;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.noticias-fixa h4 {
+  margin: 0 0 10px 0;
+  color: #2e7d32;
+  text-align: center;
+}
+
+.noticias-fixa ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.noticias-fixa li {
+  margin-bottom: 12px;
+}
+
+.noticias-fixa a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+
+.noticias-fixa span {
+  font-size: 0.75em;
+  color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .btn-abrir-noticias, .noticias-fixa {
+    display: none;
+  }
+}
+#creditos {
+  background-color: #f1f8e9;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 2px solid #c8e6c9;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+#creditos h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+#creditos ul {
+  list-style: disc;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+#creditos a {
+  color: #2e7d32;
+  text-decoration: underline;
+}
