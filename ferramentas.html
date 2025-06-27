@@ -1,26 +1,156 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Ferramentas</title>
-  <link rel="stylesheet" href="CSS/style.css">
-  <link rel="shortcut icon" href="imagens/icon do site.png" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ferramentas - AgroTech</title>
+  <link rel="shortcut icon" href="imagens/icon do site.png" type="image/x-icon" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fefefe;
+    }
+
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    nav a {
+      padding: 10px 15px;
+      background-color: #62f169;
+      color:black;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #256428;
+    }
+
+    main {
+      padding: 5vw;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2e7d32;
+    }
+
+    .ferramentas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .ferramenta {
+      background: #e8f5e9;
+      border: 1px solid #c8e6c9;
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 10px #ccc;
+      transition: transform 0.2s;
+    }
+
+    .ferramenta:hover {
+      transform: scale(1.05);
+    }
+
+    .ferramenta h3 {
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    .ferramenta p {
+      font-size: 0.95em;
+      color: #333;
+    }
+
+    .ferramenta a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #2e7d32;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .ferramentas {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Ferramentas Práticas</h1>
+    <h1>AgroTech</h1>
     <nav>
-        <a href="index.html">Início</a>
-        <a href="conteúdos.html">Conteúdos</a>
-        <a href="ferramentas.html">Ferramentas</a>
-        <a href="vitríne.html">Vitrine</a>
-      </nav>
+      <a href="index.html">Início</a>
+      <a href="conteúdos.html">Conteúdos</a>
+      <a href="ferramentas.html">Ferramentas</a>
+      <a href="vitríne.html">Vitrine</a>
+    </nav>
   </header>
+
   <main>
-    <p class="tituloss">Calculadora de vendas, sugestões de plantio e outras ferramentas para facilitar o dia a dia do agricultor.</p>
+    <h2>Ferramentas para Produtores</h2>
+    <p>Utilize recursos que facilitam o seu trabalho no campo:</p>
+
+    <div class="ferramentas">
+      <div class="ferramenta">
+        <h3>Calculadora de Lucro</h3>
+        <p>Simule seus custos e lucros de produção agrícola.</p>
+        <a href="#">Abrir</a>
+      </div>
+
+      <div class="ferramenta">
+        <h3>Calendário de Plantio</h3>
+        <p>Veja as melhores épocas para plantar em sua região.</p>
+        <a href="#">Ver</a>
+      </div>
+
+      <div class="ferramenta">
+        <h3>Gestor de Vendas</h3>
+        <p>Acompanhe vendas diretas e registre pedidos com facilidade.</p>
+        <a href="#">Usar</a>
+      </div>
+    </div>
   </main>
+
   <footer>
-   <p>&copy; 2025 Thachaton</p>
+    <p>&copy; 2025 Thachaton</p>
   </footer>
- 
+</body>
 </html>

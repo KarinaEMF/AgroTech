@@ -277,3 +277,62 @@ main h2 {
   border: 1px solid #ccc;
   text-align: left;
 }
+
+.creditos p {
+  margin: 0;
+}
+
+.creditos .nome {
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  padding: 0 6px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.acessibilidade-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+.acessibilidade-btn:hover {
+  background-color: #1b5e20;
+}
+
+/* Estilo para modo daltônico */
+.modo-daltonico {
+  background-color: #fdfdfd !important;
+  color: #000 !important;
+}
+
+.modo-daltonico .header {
+  background-color: #004d40 !important;
+}
+
+.modo-daltonico .ods-card {
+  background-color: #ffe600 !important;
+  color: #000 !important;
+}
+
+.modo-daltonico .sobre-section {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 2px dashed #333;
+}
+
+.modo-daltonico .creditos {
+  background: #424242 !important;
+  color: #fff !important;
+}

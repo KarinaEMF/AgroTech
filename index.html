@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AgroTech</title>
+    <link rel="stylesheet" href="CSS/style.css">
     <link rel="shortcut icon" href="imagens/icon do site.png" type="image/png" />
     <style>
+
       body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -15,7 +17,7 @@
 
       header {
         background-color: #2e7d32;
-        color: white;
+        color:white;
         padding: 20px;
         text-align: center;
       }
@@ -31,7 +33,7 @@
       nav a {
         padding: 10px 15px;
         background-color: #62f169;
-        color: white;
+        color: black;
         border-radius: 5px;
         text-decoration: none;
         font-weight: bold;
@@ -80,6 +82,98 @@
           padding: 20px;
         }
       }
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #2e7d32;
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.ods-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.ods-section h2 {
+  font-size: 1.8rem;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.ods-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 0 10px;
+}
+
+.ods-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.ods-card:hover {
+  transform: scale(1.05);
+}
+
+.ods-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.ods-card p {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.sobre-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.sobre-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
+
+.sobre-section p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
     </style>
   </head>
 
@@ -91,39 +185,52 @@
         <a href="conteúdos.html">Conteúdos</a>
         <a href="ferramentas.html">Ferramentas</a>
         <a href="vitríne.html">Vitrine</a>
+      
       </nav>
     </header>
+</head>
+<body>
+  <button id="botao-daltonico" class="acessibilidade-btn">Mudar cor </button>
 
-    <main>
-      <section id="boas-vindas">
-        <h2>Bem-vindo(a) à Plataforma AgroTech</h2>
-        <p>Facilitando o acesso à tecnologia e vendas para agricultores.</p>
-      </section>
-
-      <section id="sobre-projeto">
-        <h2>Sobre o Projeto</h2>
-        <p>
-          O <strong>AgroTech</strong> é uma plataforma pensada especialmente para agricultores e trabalhadores do campo que enfrentam dificuldades com acesso à informação e tecnologia. Nosso objetivo é levar conhecimento acessível, prático e funcional, mesmo em regiões com pouca conexão com a internet.
-        </p>
-        <p>
-          Através de conteúdos educativos, ferramentas úteis e uma vitrine de produtos, buscamos fortalecer o pequeno produtor, incentivando a autonomia no processo de plantio, gestão de vendas e conexão direta com consumidores.
-        </p>
-      </section>
-
-      <section id="funcionalidades">
-        <h2>Funcionalidades da Plataforma</h2>
-        <ul style="list-style: disc; text-align: left; max-width: 700px; margin: 0 auto; padding-left: 20px;">
-          <li><strong>Conteúdos:</strong> Cartilhas, vídeos, resumos e dicas práticas sobre plantio, irrigação, manejo e mais.</li>
-          <li><strong>Ferramentas:</strong> Calculadora de vendas, planejamento de safra e sugestões de cultivo.</li>
-          <li><strong>Vitrine:</strong> Espaço para divulgação e venda dos produtos agrícolas com rastreabilidade.</li>
-        </ul>
-      </section>
-    </main>
-
+ <section class="sobre-section">
+    <h2>SOBRE O PROJETO</h2>
+    <p>
+      O <strong>AgroTech</strong> é uma plataforma pensada especialmente para agricultores e trabalhadores do campo que enfrentam dificuldades com acesso à informação e tecnologia.
+      Nosso objetivo é levar conhecimento acessível, prático e funcional, mesmo em regiões com pouca conexão com a internet.
+    </p>
+    <p>
+      Através de conteúdos educativos, ferramentas úteis e uma vitrine de produtos, buscamos fortalecer o pequeno produtor, incentivando a autonomia no processo de plantio,
+      gestão de vendas e conexão direta com consumidores.
+    </p>
+  </section>
+  <section class="ods-section">
+    <h2>NOSSAS ODS</h2>
+    <div class="ods-icons">
+      <div class="ods-card">
+        <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-02.jpg" alt="ODS 2 - Fome Zero">
+        <p>Fome Zero</p>
+      </div>
+      <div class="ods-card">
+        <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-08.jpg" alt="ODS 8 - Trabalho Decente">
+        <p>Trabalho Decente</p>
+      </div>
+      <div class="ods-card">
+        <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-09.jpg" alt="ODS 9 - Inovação">
+        <p>Inovação e Infraestrutura</p>
+      </div>
+      <div class="ods-card">
+        <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-10.jpg" alt="ODS 10 - Redução das Desigualdades">
+        <p>Redução das Desigualdades</p>
+      </div>
+    </div>
+  </section>
+<seletion class="creditos">
+    <p>Projeto desenvolvido por: <span class="nome">Kevelin Cristine</span>, <span class="nome">Karina</span>, <span class="nome">Vitor Lima</span>
+</seletion>
     <footer>
-      <p>&copy; 2025 Thachaton - Todos os direitos reservados.</p>
-    </footer>
-  </body>
+   <p>&copy; 2025 Thachaton</p>
+  </footer>
+</body>
 </html>
 
 

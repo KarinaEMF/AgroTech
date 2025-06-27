@@ -35,3 +35,17 @@ function responder() {
 
   respostaDiv.innerText = resposta;
 }
+
+  const botao = document.getElementById('botao-daltonico');
+
+  botao.addEventListener('click', () => {
+    document.body.classList.toggle('modo-daltonico');
+    
+    if (document.body.classList.contains('modo-daltonico')) {
+      botao.textContent = 'Modo Normal';
+    } else {
+      botao.textContent = 'Modo Daltônico';
+    }
+  });
+
+
