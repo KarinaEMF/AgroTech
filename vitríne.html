@@ -18,6 +18,264 @@
   </header>
   <main>
     <p class="tituloss">Aqui os agricultores podem divulgar seus produtos com rastreabilidade e acesso direto ao comprador.</p>
+   <section id="comentarios" class="formulario-section">
+  <h2>Deixe seu Comentário</h2>
+  <form id="form-comentario">
+    <label for="nome">Quem são vocês?</label>
+    <input type="text" id="nome" name="nome" required>
+
+
+    <label for="area">Com que área agrícola trabalham?</label>
+    <input type="text" id="area" name="area" required>
+
+
+    <label for="tempo">Desde quando?</label>
+    <input type="text" id="tempo" name="tempo" required>
+
+
+    <label for="contato">Forma de contato (e-mail, telefone, redes sociais):</label>
+    <input type="text" id="contato" name="contato" required>
+
+
+    <label for="feedback">Feedback sobre a página:</label>
+    <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+
+    <button type="submit">Enviar</button>
+  </form>
+
+
+  <div class="filtro-comentarios">
+    <label for="ordenar">Ordenar por:</label>
+    <select id="ordenar">
+      <option value="recentes">Mais recentes</option>
+      <option value="curtidos">Mais curtidos</option>
+    </select>
+  </div>
+
+
+  <div id="respostas" class="comentarios-grid"></div>
+</section>
+
+
+<script>
+  const blobUrl = "https://jsonblob.com/api/jsonBlob/1387197112890089472";
+
+
+  function renderComentario(comentario, index) {
+    const curtiu = localStorage.getItem(`curtido-${index}`);
+    const likeClass = curtiu ? "liked" : "";
+    return `
+      <div class="comentario card fade-in" data-index="${index}">
+        <div class="card-content">
+          <h3>${comentario.nome}</h3>
+          <p><strong>Área:</strong> ${comentario.area}</p>
+          <p><strong>Desde:</strong> ${comentario.tempo}</p>
+          <p><strong>Contato:</strong> ${comentario.contato}</p>
+          <p class="feedback">"${comentario.feedback}"</p>
+        </div>
+        <div class="card-footer">
+          <button class="like-btn ${likeClass}" onclick="curtirComentario(${index})" ${curtiu ? "disabled" : ""}>
+            <span class="heart">❤</span> <span id="like-count-${index}">${comentario.likes || 0}</span>
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+
+  async function carregarComentarios(ordem = "recentes") {
+    try {
+      const response = await fetch(blobUrl);
+      let dados = await response.json();
+      window.comentarios = dados;
+
+
+      if (ordem === "curtidos") {
+        dados.sort((a, b) => (b.likes || 0) - (a.likes || 0));
+      } else {
+        dados = dados.reverse();
+      }
+
+
+      const container = document.getElementById("respostas");
+      container.innerHTML = "";
+      dados.forEach((comentario, index) => {
+        container.innerHTML += renderComentario(comentario, index);
+      });
+    } catch (error) {
+      console.error("Erro ao carregar comentários:", error);
+    }
+  }
+
+
+  async function curtirComentario(index) {
+    if (!window.comentarios) return;
+    if (localStorage.getItem(`curtido-${index}`)) return;
+
+
+    window.comentarios[index].likes = (window.comentarios[index].likes || 0) + 1;
+    localStorage.setItem(`curtido-${index}`, true);
+
+
+    try {
+      await fetch(blobUrl, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(window.comentarios)
+      });
+      carregarComentarios(document.getElementById("ordenar").value);
+    } catch (error) {
+      console.error("Erro ao curtir comentário:", error);
+    }
+  }
+
+
+  document.getElementById("form-comentario").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const nome = document.getElementById("nome").value;
+    const area = document.getElementById("area").value;
+    const tempo = document.getElementById("tempo").value;
+    const contato = document.getElementById("contato").value;
+    const feedback = document.getElementById("feedback").value;
+
+
+    const novoComentario = { nome, area, tempo, contato, feedback, likes: 0 };
+
+
+    try {
+      const response = await fetch(blobUrl);
+      const comentariosExistentes = await response.json();
+      comentariosExistentes.push(novoComentario);
+
+
+      await fetch(blobUrl, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(comentariosExistentes)
+      });
+
+
+      carregarComentarios(document.getElementById("ordenar").value);
+      document.getElementById("form-comentario").reset();
+    } catch (error) {
+      console.error("Erro ao enviar comentário:", error);
+    }
+  });
+
+
+  document.getElementById("ordenar").addEventListener("change", (e) => {
+    carregarComentarios(e.target.value);
+  });
+
+
+  window.addEventListener("load", () => carregarComentarios());
+</script>
+
+
+<style>
+  .formulario-section {
+    margin: 40px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+  }
+  .formulario-section input,
+  .formulario-section textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .formulario-section button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .filtro-comentarios {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .comentarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeSlide 0.5s ease forwards;
+  }
+  @keyframes fadeSlide {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .card-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  .card-content p {
+    margin: 5px 0;
+    color: #555;
+  }
+  .card-content .feedback {
+    font-style: italic;
+    color: #444;
+  }
+  .card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .like-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.2s;
+  }
+  .like-btn .heart {
+    color: #ccc;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .like-btn:hover .heart {
+    color: red;
+    transform: scale(1.3);
+  }
+  .like-btn.liked .heart {
+    color: red;
+  }
+  .like-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+</style>
+
+
+
+  
   </main>
   <footer>
   
